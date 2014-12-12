@@ -26,6 +26,7 @@
                 </div>
            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
                      <h2>Ingrese los datos del Nuevo Oferente</h2>
+                     
             <h:form>
                 <h:panelGrid columns="1" cellpadding="50" >
                     <h:outputLabel value="Nombre" for="nombreoferente" />
@@ -34,25 +35,25 @@
                     <p:message for="nombreoferente" />
                     <br/>
                     <h:outputLabel value="Teléfono" for="telefonooferente" />                    
-                    <p:inputMask id="telefonooferente" value="#{oferenteController.selected.telefonooferente}" title="#{bundle.CreateOferenteTitle_telefonooferente}" requiredMessage="Teléfono es Obligatorio" mask="(999) 999-9999"/>
+                    <p:inputMask id="telefonooferente" value="#{oferenteController.selected.telefonooferente}" title="Ingrese el teléfono del Oferente" requiredMessage="Teléfono es Obligatorio" mask="(999) 9999-9999"/>
                     <p:watermark for="telefonooferente" value="(503) 2222-2222" />
                     <p:message for="telefonooferente" />
                     <br/>
                     <h:outputLabel value="Fax" for="faxoferente"/>
-                    <p:inputMask id="faxoferente" value="#{oferenteController.selected.faxoferente}" title="#{bundle.CreateOferenteTitle_faxoferente}" requiredMessage="Fax es Obligatorio" mask="(999) 999-9999" />
+                    <p:inputMask id="faxoferente" value="#{oferenteController.selected.faxoferente}" title="Ingrese el fax del Oferente" requiredMessage="Fax es Obligatorio" mask="(999) 9999-9999" />
                     <p:watermark for="faxoferente" value="(503) 2222-2222" />
                     <p:message for="faxoferente" />
                     <br/>
                     <h:outputLabel value="Email" for="emailoferente" />
-                    <p:inputText id="emailoferente" value="#{oferenteController.selected.emailoferente}" title="#{bundle.CreateOferenteTitle_emailoferente}" required="true" requiredMessage="Email es Obligatorio"/>
+                    <p:inputText id="emailoferente" value="#{oferenteController.selected.emailoferente}" title="Ingrese el Email del Oferente" required="true" requiredMessage="Email es Obligatorio"/>
                     <p:watermark for="emailoferente" value="juanPerez@gmail.com" />
                     <p:message for="emailoferente" />
-					<br/>
+                    <br/>
                     
                     <h:outputLabel value="Tipo de Servicio" for="tiposervicio" />
-                    <h:selectOneMenu id="tiposervicio" value="#{oferenteController.selected.tiposervicio}" title="#{bundle.CreateOferenteTitle_tiposervicio}" required="true" requiredMessage="">
+                    <h:selectOneMenu id="tiposervicio" value="#{oferenteController.selected.tiposervicio}" title="Elija un Tipo de proveedor - Consultoria por defecto" required="true" requiredMessage="">
                     <f:selectItem itemLabel="Consultoria" itemValue="Consultoria" />
-                                <f:selectItem itemLabel="Proveedor" itemValue="Proveedor" />
+                                <f:selectItem itemLabel="Servicio" itemValue="Servicio" />
                                 <f:selectItem itemLabel="Comercial" itemValue="Comercial" />
                                 <f:selectItem itemLabel="Otro" itemValue="Otro" />
                     </h:selectOneMenu>
@@ -60,15 +61,22 @@
                     <br/>
                     
                     <h:outputLabel value="Estado " for="estadooferente" />
-                    <p:inputText id="estadooferente" name="selectorestado" value="#{oferenteController.selected.estadooferente}" title="#{bundle.CreateOferenteTitle_estadooferente}" required="true" />
-                    
-                    
-
+                    <h:selectOneMenu id="estadooferente"  value="#{oferenteController.selected.estadooferente}" title="Elija un estado para el oferente - Activo por defecto" required="true" >
+                    <f:selectItem itemLabel="Activo" itemValue="Inactivo" />
+                                <f:selectItem itemLabel="Inactivo" itemValue="Inactivo" />
+                    </h:selectOneMenu>
                     <p:watermark for="estadooferente" value="Activo" />
                      <p:message for="estadooferente" />
                     <br/>
+
                     <h:outputLabel value="#{bundle.CreateOferenteLabel_calificacion}" for="calificacion" />
-                    <p:inputText id="calificacion" value="#{oferenteController.selected.calificacion}" title="#{bundle.CreateOferenteTitle_calificacion}" />
+                    <h:selectOneMenu id="calificacion" value="#{oferenteController.selected.calificacion}" title="Elija una calificacion para el Oferente - Excelente por defecto" >
+                     <f:selectItem itemLabel="Excelente" itemValue="Excelente" />
+                                <f:selectItem itemLabel="Muy Bueno" itemValue="Muy Bueno" />
+                                <f:selectItem itemLabel="Bueno" itemValue="Bueno" />
+                                <f:selectItem itemLabel="Necesita mejorar" itemValue="Necesita mejorar" />
+                                <f:selectItem itemLabel="Malo" itemValue="Malo" />
+                    </h:selectOneMenu>
                     <p:watermark for="calificacion" value="Muy Bueno" />
                     
 

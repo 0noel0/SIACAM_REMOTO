@@ -48,10 +48,10 @@ public class Oferente implements Serializable {
     private String nombreoferente;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @Size(min = 1, max = 50)
     @Column(name = "TELEFONOOFERENTE")
     private String telefonooferente;
-    @Size(max = 10)
+    @Size(max = 50)
     @Column(name = "FAXOFERENTE")
     private String faxoferente;
     @Basic(optional = false)
