@@ -5,11 +5,37 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewOferenteTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
+    <h:head>
+        <title>Oferente - Consulta</title>
+        <link rel="shortcut icon" href="resources/images/logo_bit.ico"/>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <h:outputStylesheet name="css/dashboard.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </h:head>
+        <h:body>
+        <ui:include src="../header.xhtml" />
+            <div class="container-fluid">
+            <div class="row">
+                 <div class="col-sm-3 col-md-2 sidebar">
+                        <div>
+			<img src="../resources/images/logo.png"/>
+			</div>
+                    <hr/>
+                        <ul class="nav nav-sidebar">
+                            <li class="active"><a href="http://localhost:8080/SIACAM_REMOTO/faces/oferente/List.xhtml">Lista de Oferentes</a></li>
+                            <li><a href="http://localhost:8080/SIACAM_REMOTO/faces/oferente/Create.xhtml">Agregar Oferente</a></li>
+                            
+                        </ul>
+                        
+                             
+                </div>
+                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                     <h3>Datos del Oferente                     <h:outputText value="#{oferenteController.selected.nombreoferente}" title="#{bundle.ViewOferenteTitle_nombreoferente}"/>
+</h3>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -31,20 +57,22 @@
                     <h:outputText value="#{oferenteController.selected.estadooferente}" title="#{bundle.ViewOferenteTitle_estadooferente}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{oferenteController.destroyAndView}" value="#{bundle.ViewOferenteDestroyLink}"/>
+                <p>
+                <button type="button" class="btn btn-default" >
+                    <span class="glyphicon glyphicon-remove-sign"></span>&nbsp;<h:commandLink action="#{oferenteController.destroyAndView}" value="Eliminar"/>
+                </button>
+                 <button type="button" class="btn btn-default" >
+                     <span class="glyphicon glyphicon-pencil"></span>&nbsp;<h:link outcome="Edit" value="Editar"/>
+                 </button>
+                </p>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewOferenteEditLink}"/>
                 <br />
-                <h:commandLink action="#{oferenteController.prepareCreate}" value="#{bundle.ViewOferenteCreateLink}" />
-                <br />
-                <h:commandLink action="#{oferenteController.prepareList}" value="#{bundle.ViewOferenteShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewOferenteIndexLink}"/>
+                
 
             </h:form>
-        </ui:define>
-    </ui:composition>
-
+                     </div>
+            </div>
+        </div>
+        </h:body>  
 </html>
