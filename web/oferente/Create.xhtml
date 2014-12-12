@@ -9,7 +9,7 @@
     <ui:composition template="/template.xhtml">
     <ui:define name="title">
             <h:outputText value="Oferente"></h:outputText>
-        </ui:define>
+    </ui:define>
     <ui:define name="body">
          <ui:include src="../header.xhtml" />-->
          <div class="container-fluid">
@@ -25,43 +25,66 @@
 		               </ul>
                 </div>
            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
-                     <h3>Ingrese los datos del Nuevo Oferente</h3>
-                     <br></br>
-          <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
+                     <h2>Ingrese los datos del Nuevo Oferente</h2>
             <h:form>
-                <h:panelGrid columns="2" cellpadding="5" >
+                <h:panelGrid columns="1" cellpadding="50" >
                     <h:outputLabel value="Nombre" for="nombreoferente" />
-                    <p:inputText id="nombreoferente" value="#{oferenteController.selected.nombreoferente}" title="Ingrese Nombre y Apellido" required="true" requiredMessage="El Nombre es Obligatorio"/><p:watermark for="nombreoferente" value="Juan Perez" />
-                    <p:outputLabel value="Teléfono" for="telefonooferente" />                    
-                    <p:inputMask id="telefonooferente" value="#{oferenteController.selected.telefonooferente}" title="#{bundle.CreateOferenteTitle_telefonooferente}" requiredMessage="#{bundle.CreateOferenteRequiredMessage_telefonooferente}" mask="(999) 999-9999"/>
+                    <p:inputText id="nombreoferente" value="#{oferenteController.selected.nombreoferente}" title="Ingrese Nombre y Apellido" required="true" requiredMessage="El Nombre es Obligatorio"/>
+                    <p:watermark for="nombreoferente" value="Juan Perez" />
+                    <p:message for="nombreoferente" />
+                    <br/>
+                    <h:outputLabel value="Teléfono" for="telefonooferente" />                    
+                    <p:inputMask id="telefonooferente" value="#{oferenteController.selected.telefonooferente}" title="#{bundle.CreateOferenteTitle_telefonooferente}" requiredMessage="Teléfono es Obligatorio" mask="(999) 999-9999"/>
                     <p:watermark for="telefonooferente" value="(503) 2222-2222" />
-                    <p:outputLabel value="Fax" for="faxoferente"/>
-                    <p:inputMask id="faxoferente" value="#{oferenteController.selected.faxoferente}" title="#{bundle.CreateOferenteTitle_faxoferente}" mask="(999) 999-9999" />
-                     <p:watermark for="faxoferente" value="(503) 2222-2222" />
-                    <p:outputLabel value="Email" for="emailoferente" />
-                    <p:inputText id="emailoferente" value="#{oferenteController.selected.emailoferente}" title="#{bundle.CreateOferenteTitle_emailoferente}" required="true" requiredMessage="#{bundle.CreateOferenteRequiredMessage_emailoferente}">
-                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-					</p:inputText>
-                    <p:outputLabel value="Tipo de Servicio" for="tiposervicio" />
-                    <p:inputText id="tiposervicio" value="#{oferenteController.selected.tiposervicio}" title="#{bundle.CreateOferenteTitle_tiposervicio}" required="true" requiredMessage="#{bundle.CreateOferenteRequiredMessage_tiposervicio}"/>
-                    <p:outputLabel value="#{bundle.CreateOferenteLabel_estadooferente}" for="estadooferente" />
-                    <p:inputText id="estadooferente" value="#{oferenteController.selected.estadooferente}" title="#{bundle.CreateOferenteTitle_estadooferente}" required="true" requiredMessage="#{bundle.CreateOferenteRequiredMessage_estadooferente}"/>
-                    <p:outputLabel value="#{bundle.CreateOferenteLabel_calificacion}" for="calificacion" />
+                    <p:message for="telefonooferente" />
+                    <br/>
+                    <h:outputLabel value="Fax" for="faxoferente"/>
+                    <p:inputMask id="faxoferente" value="#{oferenteController.selected.faxoferente}" title="#{bundle.CreateOferenteTitle_faxoferente}" requiredMessage="Fax es Obligatorio" mask="(999) 999-9999" />
+                    <p:watermark for="faxoferente" value="(503) 2222-2222" />
+                    <p:message for="faxoferente" />
+                    <br/>
+                    <h:outputLabel value="Email" for="emailoferente" />
+                    <p:inputText id="emailoferente" value="#{oferenteController.selected.emailoferente}" title="#{bundle.CreateOferenteTitle_emailoferente}" required="true" requiredMessage="Email es Obligatorio"/>
+                    <p:watermark for="emailoferente" value="juanPerez@gmail.com" />
+                    <p:message for="emailoferente" />
+					<br/>
+                    
+                    <h:outputLabel value="Tipo de Servicio" for="tiposervicio" />
+                    <h:selectOneMenu id="tiposervicio" value="#{oferenteController.selected.tiposervicio}" title="#{bundle.CreateOferenteTitle_tiposervicio}" required="true" requiredMessage="">
+                    <f:selectItem itemLabel="Consultoria" itemValue="Consultoria" />
+                                <f:selectItem itemLabel="Proveedor" itemValue="Proveedor" />
+                                <f:selectItem itemLabel="Comercial" itemValue="Comercial" />
+                                <f:selectItem itemLabel="Otro" itemValue="Otro" />
+                    </h:selectOneMenu>
+                    <p:message for="tiposervicio" />
+                    <br/>
+                    
+                    <h:outputLabel value="Estado " for="estadooferente" />
+                    <p:inputText id="estadooferente" name="selectorestado" value="#{oferenteController.selected.estadooferente}" title="#{bundle.CreateOferenteTitle_estadooferente}" required="true" />
+                    
+                    
+
+                    <p:watermark for="estadooferente" value="Activo" />
+                     <p:message for="estadooferente" />
+                    <br/>
+                    <h:outputLabel value="#{bundle.CreateOferenteLabel_calificacion}" for="calificacion" />
                     <p:inputText id="calificacion" value="#{oferenteController.selected.calificacion}" title="#{bundle.CreateOferenteTitle_calificacion}" />
+                    <p:watermark for="calificacion" value="Muy Bueno" />
+                    
+
+                   
                     
                 </h:panelGrid>
                 <br />
                 <br/>
                 <br/>
                 <p>
-                <button type="button"  >
-                    <span ></span> <h:commandLink action="#{oferenteController.create}" value="Guardar" />
-                </button>
-                 <button type="button"  >
-                    <span ></span>  <h:commandLink action="#{oferenteController.prepareList}" value="Cancelar" immediate="true"/>
-                </button>
+	 		  
+               <h:commandLink action="#{oferenteController.create}" ><button type="button" class="btn btn-default glyphicon glyphicon-floppy-disk">&nbsp; Guardar</button></h:commandLink>
+               <span></span>
+               <h:commandLink action="#{oferenteController.prepareList}" immediate="true"><button type="button" class="btn btn-danger glyphicon glyphicon-remove-sign">&nbsp;Cancelar</button></h:commandLink>
+                <span></span>
+                
                 </p>
                
             </h:form>
