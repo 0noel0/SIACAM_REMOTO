@@ -1,72 +1,55 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <h:head>
-        <title>Facelet Title</title>
+        <title>SIACAM</title>
+        <link rel="shortcut icon" href="resources/images/logo_bit.ico"/>
         <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <h:outputStylesheet name="css/dashboard.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" />
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </h:head>
+
     <h:body>
-        Hello from Facelets
+        <ui:include src="header.xhtml" />
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <div>
+                        <img src="resources/images/logo.png"/>
+                    </div>
+                    <hr/>
+
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">                    
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Bienvenido a SIACAM</h1>
+                        </div>
+                        <div class="panel-body">
+                            <p align="justify">Visión
+                                Ser una institución rectora, fuerte e integrada, moderna; que brinde atención a las expectativas de la población, con honestidad y transparencia; promoviendo la participación ciudadana con equidad de género. Mejorando la gestión de riesgo y promoviendo la armonía con el medio ambiente.
+                                Misión
+                                Somos una administración municipal basada en principios y valores; con proyección humana e inclusión a los diferentes sectores, para contribuir a mejorar la calidad de vida y el desarrollo integral de la población.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
         <br />
-        <h:link outcome="/adenda/List" value="Show All Adenda Items"/>
-        <br />
-        <h:link outcome="/datosinstitucionales/List" value="Show All Datosinstitucionales Items"/>
-        <br />
-        <h:link outcome="/detalleficharetirobases/List" value="Show All Detalleficharetirobases Items"/>
-        <br />
-        <h:link outcome="/detallenecesipaac/List" value="Show All Detallenecesipaac Items"/>
-        <br />
-        <h:link outcome="/detalleoferta/List" value="Show All Detalleoferta Items"/>
-        <br />
-        <h:link outcome="/detallepaac/List" value="Show All Detallepaac Items"/>
-        <br />
-        <h:link outcome="/detallesolicitudobra/List" value="Show All Detallesolicitudobra Items"/>
-        <br />
-        <h:link outcome="/empleado/List" value="Show All Empleado Items"/>
-        <br />
-        <h:link outcome="/expedienteproceso/List" value="Show All Expedienteproceso Items"/>
-        <br />
-        <h:link outcome="/listadonecesipaac/List" value="Show All Listadonecesipaac Items"/>
-        <br />
-        <h:link outcome="/oferente/List" value="Show All Oferente Items"/>
-        <br />
-        <h:link outcome="/oferta/List" value="Show All Oferta Items"/>
-        <br />
-        <h:link outcome="/ordencompra/List" value="Show All Ordencompra Items"/>
-        <br />
-        <h:link outcome="/paac/List" value="Show All Paac Items"/>
-        <br />
-        <h:link outcome="/rol/List" value="Show All Rol Items"/>
-        <br />
-        <h:link outcome="/solicitudobra/List" value="Show All Solicitudobra Items"/>
-        <br />
-        <h:link outcome="/unidadSolicitante/List" value="Show All UnidadSolicitante Items"/>
-        <br />
-        <h:link outcome="/unspsc/List" value="Show All Unspsc Items"/>
-        <br />
-        <h:link outcome="/usuario/List" value="Show All Usuario Items"/>
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
     </h:body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
 

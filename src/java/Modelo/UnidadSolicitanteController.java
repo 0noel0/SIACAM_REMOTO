@@ -183,7 +183,7 @@ public class UnidadSolicitanteController implements Serializable {
     }
 
     public SelectItem[] getItemsAvailableSelectOne() {
-        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+        return JsfUtil.getSelectItemsUnidadSolicitante(ejbFacade.findAll(), true);
     }
 
     public UnidadSolicitante getUnidadSolicitante(java.lang.Short id) {
